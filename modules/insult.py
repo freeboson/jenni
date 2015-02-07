@@ -9,6 +9,9 @@ More info:
 """
 import os, random
 from modules import unicode as uc
+import re
+
+suj = re.compile(r'.*s.*u.*j.*e.*e.*t.*')
 
 def insult(jenni, input):
     """ insults <target> with configured language insult """
@@ -21,8 +24,14 @@ def insult(jenni, input):
     target = input.group(2)
     if not target:
         return jenni.reply('.i <target>!')
+    if target.lower() == 'sujeet':
+        target = input.nick
+    elif target.lower() == jenni.nick.lower():
+        target = input.nick
     target.encode('utf-8')
     target = (target).strip()
+    if suj.match(target.lower()):
+        return jenni.reply('fuck off')
     try:
         fn = open(insultFilename, "r")
     except IOError as e:
