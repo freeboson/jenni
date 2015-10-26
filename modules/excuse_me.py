@@ -51,7 +51,7 @@ def excuse_me(jenni, *_):
     jenni.say(excuse)
 
 excuse_me.commands = ['excuse_me', 'excuse-me']
-print_summary.priority = 'high'
+excuse_me.priority = 'high'
 
 if __name__ == '__main__':
     print __doc__.strip()
