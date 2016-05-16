@@ -74,7 +74,7 @@ def print_summary(jenni, input=None, arxiv_id=None):
         query = input.group(2)
 
     if not query:
-        return jenni.say('Pleaes provide an input to lookup via arVix.')
+        return jenni.say('Please provide an input to lookup via arXiv.')
 
     try:
         (arxiv_id, authors, title, abstract, url) = get_arxiv(query)
